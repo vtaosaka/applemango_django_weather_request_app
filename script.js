@@ -21,7 +21,9 @@ const toDetails = (city) => {
 
 const renderDetails = (data) => {
     element(".prefecture").innerText = data.city
+    element(".date").innerText = data.weather.date
     element("img").src = data.image.url
+    element(".weather").src = data.weather.telop
     element(".max").innerText = data.weather.temperature.max || "情報がありませんでした"
     element(".min").innerText = data.weather.temperature.min || "情報がありませんでした"
 }
@@ -30,8 +32,8 @@ on(element("button"), "click", async (e)=> {
     const value = element("select").value
     if(!value)
         return
-    const res = await (await fetch(`/weather?city=${value}&id=${cities[value]}`)).json()
     toDetails(value)
+    const res = await (await fetch(`/weather?city=${value}&id=${cities[value]}`)).json()
     renderDetails(res)
 })
 on(element("a"), "click", async (e)=> {
@@ -40,10 +42,12 @@ on(element("a"), "click", async (e)=> {
 
 const inti = async () => {
     if (location.pathname == "/details") {
+        cL(".details").add("active")
+        cL(".home").remove("active")
         const value = (new URL(location.href)).searchParams.get("city")
         const res = await (await fetch(`/weather?city=${value}&id=${cities[value]}`)).json()
-        toDetails(value)
         renderDetails(res)
+        toDetails(value)
         return
     }
     backHome()
