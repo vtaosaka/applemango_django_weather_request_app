@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .page:not(.active) {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="page home">
+            <h1>Weather Information</h1>
+            <h2>今日の天気を知りたい場所を選択してください</h2>
+            <select>
+                <option value=""></option>
+                <option value="大阪府">大阪</option>
+                <option value="兵庫県">兵庫</option>
+            </select>
+            <button>確認する</button>
+        </div>
+        <div class="page details">
+            <h1>Weather Information</h1>
+            <h2>
+                <span class="prefecture"></span>
+                <span class="date"></span>
+                の天気
+            </h2>
+            <img src="">
+            <h3 class="weather"></h3>
+            <p>
+                最高気温 :
+                <span class="max"></span>
+            </p>
+            <p>
+                最低気温 :
+                <span class="min"></span>
+            </p>
+            <div>
+                <a href="/">トップページに戻る</a>
+            </div>
+        </div>
+        <script src="./script.js"></script>
+    </body>
+</html>
