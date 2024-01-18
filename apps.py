@@ -35,10 +35,6 @@ def index(request):
     return render("index.html")
 
 
-def script(request):
-    return render("script.js", "text/javascript; charset=utf-8")
-
-
 def get_weather(params: int):
     url = f"https://weather.tsukumijima.net/api/forecast?city={params}"
     return get(url, verify=False).json()
@@ -74,7 +70,6 @@ def get_wether(request):
 urlpatterns = [
     path("", index),
     path("details", index),
-    path("script.js", script),
     path("weather", get_wether)
 ]
 
