@@ -1,4 +1,3 @@
-from django.contrib import admin
 from django.http import HttpResponse, JsonResponse
 from django.urls import path
 from django.apps import AppConfig
@@ -54,7 +53,6 @@ def get_wether(request):
     return JsonResponse(context)
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
     path("", index),
     path("details", index),
     path("script.js", script),
