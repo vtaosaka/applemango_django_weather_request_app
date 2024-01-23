@@ -26,7 +26,9 @@ HTML = """
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Weather</title>
+        <meta name="description" content="天気予報確認アプリです、都道府県を選ぶだけで高速に天気を知ることができます" />
+
         <style>
             .page:not(.active) {
                 display: none;
@@ -37,7 +39,8 @@ HTML = """
         <div class="page home active">
             <h1>Weather Information</h1>
             <h2>今日の天気を知りたい場所を選択してください</h2>
-            <select>
+            <label for="select">prefecture:</label>
+            <select id="select">
                 <option value=""></option>
                 <option value="大阪府">大阪</option>
                 <option value="兵庫県">兵庫</option>
